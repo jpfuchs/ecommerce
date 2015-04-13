@@ -118,25 +118,50 @@
                        <?php echo form_close(); ?>
 
 
-
+                    <?php echo $this->session->flashdata('success_comm'); ?>
 
 
                     <div class="row">
+                     
+                         <?php foreach ($commentaire  as $key => $value) : ?>
+
                         <div class="col-md-12">
+
+                    
+
+                            <!--<span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
+                              <span class="glyphicon glyphicon-star-empty"></span>-->
+                           
+                             <?php   for($i=1;$i<=$value->note;$i++) { ?>
+                                   
+                                        <span class="glyphicon glyphicon-star"></span>
+
+                               <?php     } ?>
+
+                             
+
+                             <?php echo $value->note ; ?>
+
+
+
+                            <?php echo $value->auteur ; ?>
+                            <span class="pull-right"><?php echo $value->datecommentaire ; ?></span>
+                            <p> <?php echo $value->contenu ; ?></p>
                         </div>
+
+                        <?php endforeach; ?>
+
+
+                      
+
                     </div>
 
                     <hr>
 
-                    <div class="row">
+                 <!--   <div class="row">
                         <div class="col-md-12">
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
@@ -162,7 +187,7 @@
                             <span class="pull-right">15 days ago</span>
                             <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
 
