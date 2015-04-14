@@ -26,11 +26,11 @@ class Commentaire_model extends CI_Model
 public function findCommentaire($idProduit)
 	{	
 		
-		var_dump($idProduit);
+		//var_dump($idProduit);
 		$query=$this->db->get_where("commentaires", ["produits_id"=>$idProduit]);
 
 
-		var_dump($query->result("Commentaire_model"));
+		//var_dump($query->result("Commentaire_model"));
 			
 		return ($query->result("Commentaire_model"));
 		//die("class Produit_model");

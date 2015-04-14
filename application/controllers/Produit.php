@@ -77,19 +77,27 @@ class Produit extends CI_Controller {
 			//var_dump($this->input->post() ) ;	
 
 			//die("formulaire valide");
+
+			$this->session->set_flashdata("success_comm", "votre commentaire a ete bien ajoute");
+
+			redirect("produit/information/".$idProduit);
 		}
 
 
 		$Allcommentaires = $this->Commentaire_model->findCommentaire($idProduit);
-		var_dump($Allcommentaires);
+		//var_dump($Allcommentaires);
 
 		$this->load->model('Produit_model');
 		$unProduit = $this->Produit_model->findUnProduit($idProduit);
+		if (empty($unProduit))
+		{
+			show_404();
+		}
 		//var_dump($unProduit);
 		//$this->load->view('produit/unproduit');
 
 
-		$this->load->view('produit/unproduit',["unproduit"=>$unProduit] );
+		$this->load->view('produit/unproduit',["unproduit"=>$unProduit,"commentaire"=>$Allcommentaires] );
 		
 	}
 
