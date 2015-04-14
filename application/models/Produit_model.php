@@ -13,8 +13,24 @@ class Produit_model extends CI_Model
 		//return $requete->result("produit");
 
 
-		$sql = "select * from produits limit ?";
+		//$sql = "select * from produits limit ?";
+
+		$sql = "select produits.id, titre, description, prix, image,AVG(note) as moyenne, count(produits_id) as nombre 
+		from produits left join commentaires on produits.id=commentaires.produits_id group by 1,2,3,4,5 limit ?";
+
+		/*$sql="select produits.*,marque.nom,  
+			  count(produits_id) as nombre,
+			  AVG(note) as moyenne
+			  from produits
+			  left join commentaires on commentaires.produits_id = produits.id
+			  left join marque on marque.idmarque = produits.marque_idmarque;
+			  group by id
+			   limit ?";*/
+
+		
 		$query=$this->db->query($sql, [$nb]);
+
+		//var_dump($query->result("Produit_model"));
 		return $query->result("Produit_model");
 
 		die("class Produit_model");
@@ -28,7 +44,11 @@ class Produit_model extends CI_Model
 		//return $requete->result("produit");
 
 
-		$sql = "select * from produits order by prix desc limit ?";
+		//$sql = "select * from produits order by prix desc limit ?";
+		$sql = "select produits.id, image, AVG(note) as moyenne 
+		from produits left join commentaires on produits.id=commentaires.produits_id 
+		group by 1,2 order by moyenne desc limit ?";
+		
 		$query=$this->db->query($sql, [$nb]);
 		//var_dump($query->result("Produit_model"));
 
@@ -74,7 +94,9 @@ class Produit_model extends CI_Model
 		//var_dump($requete->result("produit"));
 		//return $requete->result("produit");
 
-		$sql = "select * from produits where marque_idmarque= ?";
+		$sql = "select produits.id, titre, description, prix, image,AVG(note) as moyenne, count(produits_id) as nombre 
+		from produits left join commentaires on produits.id=commentaires.produits_id
+		where marque_idmarque= ? group by 1,2,3,4,5";
 		$query=$this->db->query($sql, [$idMarque]);
 		
 		//var_dump($query->result("Produit_model"));

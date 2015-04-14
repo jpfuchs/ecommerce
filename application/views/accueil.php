@@ -93,14 +93,28 @@
                                 <p><a href=""><?= word_limiter($value->description,5); ?></a></p>
                             </div>
                             <div class="ratings">
-                                <p class="pull-right">15 reviews</p>
-                                <p>
+                                  <?php for($i=1;$i<=5;$i++) { ?>
+                                    <?php if($i <= round($value->moyenne)):  ?>
+                                        <span class="glyphicon glyphicon-star"></span>
+                                    <?php else: ?>
+                                         <span class="glyphicon glyphicon-star-empty"></span>
+                                    <?php endif; ?>
+
+                                  <?php     } ?>
+                                    
+                                 <?php if ( ($value->nombre === '0')  ||  ($value->nombre === '1') ): ?>
+                                     <p class="pull-right"><?php echo $value->nombre ; ?>  commentaire</p>
+                                 <?php  else : ?>
+                                    <p class="pull-right"><?php echo $value->nombre ; ?>  commentaires</p>
+                                 <?php endif; ?>
+
+                               <!-- <p>
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>
-                                </p>
+                                </p>-->
                             </div>
                         </div>
                     </div>

@@ -148,7 +148,8 @@ class Produit extends CI_Controller {
 		$AllProduits = $this->Produit_model->findProduit_Marque($idMarque);
 		
 		$articlesPLusCher = $this->Produit_model->findProdPLusCherLimit();
-	
+
+		//$Allcommentaires = $this->Commentaire_model->findCommentaire($idProduit);
 		//var_dump($AllProduits);
 		
 		$this->load->view('accueil',["allArticles"=>$AllProduits, "allArticlesPlusCher"=>$articlesPLusCher]);

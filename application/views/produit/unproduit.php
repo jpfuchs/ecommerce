@@ -1,5 +1,6 @@
 <?php $this->load->view("globals/header"); ?>
 
+
     <!-- Page Content -->
     <div class="container">
 
@@ -32,7 +33,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>-->
 
-                    <div class="ratings">
+                    <!--<div class="ratings">
                         <p class="pull-right">3 reviews</p>
                         <p>
                             <span class="glyphicon glyphicon-star"></span>
@@ -123,7 +124,9 @@
 
                     <div class="row">
                      
-                         <?php foreach ($commentaire  as $key => $value) : ?>
+                         <?php  $sommeNote =0;
+
+                                foreach ($commentaire  as $key => $value) : ?>
 
                         <div class="col-md-12">
 
@@ -166,8 +169,32 @@
                             <p> <?php echo $value->contenu ; ?></p>
                         </div>
 
+                        <?php  
+                             $sommeNote =+ $sommeNote + $value->note; ?>
+
                         <?php endforeach; ?>
 
+                        
+                       
+                           
+                            <?php    if (count($commentaire) > 0) { ?>
+
+                                  <h5> Moyenne notes: 
+
+                                <?php for($i=1;$i<=round( ($sommeNote/count($commentaire)));$i++) { ?>
+
+                                        <span class="glyphicon glyphicon-star"></span>
+
+                                  <?php     } ?>
+
+                                  <?php  }  ?> 
+
+
+                         </h5>
+
+
+                             
+                    
 
                       
 
