@@ -85,7 +85,7 @@ class Produit extends CI_Controller {
 
 
 		$Allcommentaires = $this->Commentaire_model->findCommentaire($idProduit);
-		var_dump($Allcommentaires);
+		//var_dump($Allcommentaires);
 
 		$this->load->model('Produit_model');
 		$unProduit = $this->Produit_model->findUnProduit($idProduit);

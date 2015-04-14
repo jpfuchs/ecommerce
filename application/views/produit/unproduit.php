@@ -141,9 +141,23 @@
 
                                <?php     } ?>
 
+                               <?php
+                                        $val = 5 - $value->note;
+                                        if ($val >0) 
+                                        {
+                                              for($j=1;$j<=$val;$j++)
+                                              { ?>
+
+                                                <span class="glyphicon glyphicon-star-empty"></span>;
+
+                                              <?php }  
+                                        }
+
+                                    
+                                ?> 
                              
 
-                             <?php echo $value->note ; ?>
+                            
 
 
 
