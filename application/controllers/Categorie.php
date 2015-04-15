@@ -35,9 +35,9 @@ class Categorie extends CI_Controller {
 
 		$this->load->model('Categorie_model');
 		$allProduitCategorie = $this->Categorie_model->findProduitCategorie($idCategorie);
-		//var_dump($unProduit);
+		//var_dump($allProduitCategorie);
 		//$this->load->view('produit/unproduit');
-		//$this->load->view('produit/unproduit',["unproduit"=>$unProduit] );
+		$this->load->view('categorie/allcategorie',["produitsCategories"=>$allProduitCategorie] );
 	}
 
 

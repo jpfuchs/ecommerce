@@ -15,7 +15,10 @@
     <link href="<?= base_url(); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?= base_url(); ?>assets//css/shop-homepage.css" rel="stylesheet">
+
+    <?php if(strpos(uri_string(),'categorie/information/') === false): ?>
+        <link href="<?= base_url(); ?>assets/css/shop-homepage.css" rel="stylesheet">
+    <?php endif; ?>
 
     <style ="test/css">
         h5{

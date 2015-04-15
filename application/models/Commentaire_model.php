@@ -36,7 +36,7 @@ public function findCommentaire($idProduit)
 		//die("class Produit_model");
 	}
 
-	
+
 	
 	
 }

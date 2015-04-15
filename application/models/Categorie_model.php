@@ -22,19 +22,29 @@ class Categorie_model extends CI_Model
 	public function findProduitCategorie($idCategorie)
 	{
 
-		var_dump($idCategorie);
+		//var_dump($idCategorie);
 
 		
 
-		$sql = "select id_produit FROM produit_categorie WHERE id_categorie= ?";
+		//$sql = "select id_produit FROM produit_categorie WHERE id_categorie= ?";
+		$sql = "select  produits.*, marque.nom, id_produit FROM produit_categorie
+left join produits on  produits.id = produit_categorie.id_produit
+left join marque on produits.marque_idmarque = marque.idmarque
+where produit_categorie.id_categorie=?";
 		
 		$query=$this->db->query($sql, [$idCategorie]);
 
-		var_dump($query->result("Categorie_model"));
+		//var_dump($query->result("Categorie_model"));
 
 		return $query->result("Categorie_model");
 
 	}
+
+	public function displayImage()
+	{
+		return base_url()."assets/images/".$this->image;
+	}
+
 
 	
 	

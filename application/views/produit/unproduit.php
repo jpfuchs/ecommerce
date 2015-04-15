@@ -63,6 +63,22 @@
                          <input type="submit" name="valider" value="" />
                     
                     </form>-->
+                     <div class="well">
+                    
+                   
+                           <?php echo form_open("Panier/ajout"); ?>
+
+                        <input type="number" name="qty" />
+
+                         <input type="hidden" name="idProduit" value="<?= $unproduit->id ?>" />
+
+                         <button type="submit"  class="btn btn-primary" name="Ajouter">Ajouter</button>
+
+                         <?php echo form_close(); ?>
+
+                  
+                    
+                    </div>
 
                     <?php echo form_open("produit/information/".$unproduit->id); ?>
 

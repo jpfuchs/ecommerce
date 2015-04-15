@@ -24,6 +24,10 @@ class Main extends CI_Controller {
 		// Charge le helper uniquement pour cette methode
 		//$this->load->helper('url');
 
+		//set_cookie("test", "ceci est un test", 0);  // expire sur une nouvelle session
+		//set_cookie("test", "ceci est un test", time() + 172800); // expire dans 2j
+		//var_dump(get_cookie("test"));
+
 		$this->load->helper('text');
 
 		//$prenom="ludo";
