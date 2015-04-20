@@ -29,10 +29,13 @@ class Pannier_model extends CI_Model
 	}
 
 	
-public function displayImage()
+	public function displayImage()
 	{
 		return base_url()."assets/images/".$this->image;
 	}
+
+
+
 	
 	
 }

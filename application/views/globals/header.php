@@ -59,10 +59,16 @@
                         <a href="<?= site_url('marque'); ?>">Marques</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <?php 
+
+                            $panier = unserialize(get_cookie("cadie"));
+                            count($panier);
+                        ?>
+                        <a href="<?= site_url('panier');  ?>">Panier(<?php   echo count($panier);?> )</a>
                     </li>
+
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="<?= site_url('chat');  ?>">Chat</a>
                     </li>
                 </ul>
             </div>
@@ -70,3 +76,5 @@
         </div>
         <!-- /.container -->
     </nav>
+
+

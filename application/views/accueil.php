@@ -1,5 +1,5 @@
 
-<?php $this->load->view("globals/header"); ?>
+
 
     <!-- Page Content -->
     <div class="container">
@@ -86,7 +86,7 @@
                            <!-- <img src="<?= base_url(); ?>assets/images/<?php echo $value->image ; ?>" alt="">-->
                              <img src="<?= $value->displayImage(); ?>" >
                             <div class="caption">
-                                <h4 class="pull-right"><?php echo $value->prix." euros" ; ?></h4>
+                                <h4 class="pull-right"><?= formatPrix($value->prix) ; ?></h4>
                                 <h4><a href="<?=site_url("produit/information/".$value->id."");?>"><?php echo $value->titre ; ?></a>
                                 </h4>
                                 <!--<p><a href=""><?php echo $value->description ; ?></a></p>-->
@@ -227,13 +227,15 @@
     </div>
     <!-- /.container -->
 
-       <?php $this->load->view("globals/footer"); ?>
-
+     
     <!-- jQuery -->
     <script src="<?= base_url(); ?>assets/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+
+   
+     
 
 </body>
 

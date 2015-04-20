@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Main extends CI_Controller {
+class Main extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -44,6 +44,7 @@ class Main extends CI_Controller {
 
 		//$this->load->view('accueil',["firstname"=>$prenom]);
 		//$this->load->view('accueil',["allArticles"=>$articles, "allimages"=>$allImages]);
-		$this->load->view('accueil',["allArticles"=>$articles,"allArticlesPlusCher"=>$articlesPLusCher]);
+		//$this->load->view('accueil',["allArticles"=>$articles,"allArticlesPlusCher"=>$articlesPLusCher]);
+		$this->render("accueil",["allArticles"=>$articles,"allArticlesPlusCher"=>$articlesPLusCher]);
 	}
 }
